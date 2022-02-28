@@ -338,7 +338,7 @@ const getStyles = (colors, sizes) => ({
   calendar: {
     backgroundColor: colors.calendar,
     overflow: "hidden",
-    height: 7 * sizes.rowHeight + sizes.rowPadding * 6,
+    height: 7 * sizes.rowHeight + sizes.rowPadding * 7,
   },
   daysOfTheWeek: {
     flexDirection: "row",
