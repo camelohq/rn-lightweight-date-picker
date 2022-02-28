@@ -17,17 +17,17 @@ describe("'DatePicker' should ", () => {
 
     let { debug, queryByText, getAllByText, getAllByTestId, getByTestId, getByA11yLabel } = render(<Calendar showControls />);
     let a = getByTestId("couldBeTested");
-    let weeks = helper.getMonth(2014, 3);
 
     let year = new Date().getFullYear();
     let month = new Date().getMonth();
+    let weeks = helper.getMonth(year, month, "mon");
 
     it("highlight sundays", () => {
         let sundays = weeks.length;
         let prevDate = helper.subtractMonth({ year, month});
-        let prevWeeks = helper.getMonth(prevDate.year, prevDate.month);
-        let nextDate = helper.subtractMonth({ year, month});
-        let nextWeeks = helper.getMonth(nextDate.year, nextDate.month);
+        let prevWeeks = helper.getMonth(prevDate.year, prevDate.month, "mon");
+        let nextDate = helper.addMonth({ year, month});
+        let nextWeeks = helper.getMonth(nextDate.year, nextDate.month, "mon");
 
         expect(getAllByTestId("weekend").length).toEqual(sundays + prevWeeks.length + nextWeeks.length);
     });
